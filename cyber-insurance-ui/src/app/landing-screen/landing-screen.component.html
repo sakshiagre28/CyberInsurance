@@ -1,0 +1,12 @@
+<div class="main-container">
+        <div class="container-heading">Let's get started 
+            <hr>
+        </div>
+        <div class="container-input">
+            <form #getStartedForm = "ngForm" (ngSubmit)= "getAQuoteClick(getStartedForm.value)" autocomplete="off">
+            <input type="text" placeholder="  Zip code" class="txtZipcode" required [(ngModel)] = "txtZipcode" name="txtZipcode">
+            <input type="text" placeholder="  Name" class="txtName" required [(ngModel)] = "txtName" name="txtName"><br>
+            <button type ="submit" class="btn btn-primary">Get a quote</button>
+            </form>
+        </div>            
+</div>  

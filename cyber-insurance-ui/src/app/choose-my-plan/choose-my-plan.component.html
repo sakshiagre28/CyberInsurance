@@ -1,0 +1,65 @@
+<div class="content">
+    <div fxLayout="row wrap" fxLayoutGap="16px">
+      <div fxFlex="25%" fxFlex.xs="100%" fxFlex.sm="33%" *ngFor="let plan of plans">
+        <mat-card class="mat-elevation-z4" >
+          <mat-card-header>
+            <mat-card-title></mat-card-title>
+          </mat-card-header>
+          
+          <mat-card-content class="cardContent">
+              <div class="cardTitle">Sum Insured</div>
+            <p>
+                {{plan}} : Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+            </p>
+          </mat-card-content>
+          <mat-card-actions class="cardContent">
+            <button mat-stroked-button color="primary" (click)="isClicked = !isClicked" >{{ isClicked == true ? 'Selected' : 'Select' }}</button>
+            
+          </mat-card-actions>
+        </mat-card>
+
+      </div>
+    </div>
+    </div>
+
+    <mat-expansion-panel>
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+                View Coverages
+            </mat-panel-title>
+        </mat-expansion-panel-header>
+
+        <div class="mainContainer"  fxLayout="row wrap" fxLayoutGap="15px">
+          <div class="cardContainer" fxFlex="29%" *ngFor="let plan of plans">
+            <div class ="card">
+              <div class="front">
+                <div class="title">{{plan}}</div>
+              </div>
+              <div class="back">
+                <div class="cardDescr"> Back</div>
+              </div>
+            </div>
+  
+          </div>
+        </div>
+    </mat-expansion-panel> 
+    <div style="margin: 20px 0px 15px 5px; font-size: 15px;color: #0b0b6b;">
+      Select add on Cover
+      <button mat-stroked-button class="btnMalware" (click)="onMalwareClick()" [ngClass]="{'btnMalwareSelected' : isMalwareSelected}">{{ isMalwareSelected == false ? 'Malware' : 'Malware Added' }}</button>
+    </div>
+    <!--
+      <div class="mainContainer" *ngFor="let plan of plans">
+        <div class="cardContainer" >
+          <div class ="card">
+            <div class="front">
+              <div class="title">{{plan}}</div>
+            </div>
+            <div class="back">
+              back
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <img src ="../../assets/images/icons8-add-24.png">
+    -->

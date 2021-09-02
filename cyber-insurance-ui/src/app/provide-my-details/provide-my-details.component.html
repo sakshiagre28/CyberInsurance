@@ -1,0 +1,167 @@
+<div class="main-container">
+    <mat-expansion-panel>
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+                Personal Details
+            </mat-panel-title>
+            
+            
+        </mat-expansion-panel-header>
+        <form>
+            <div>
+                <mat-form-field appearance="fill" [(ngModel)]="salutation" name="salutation" ngDefaultControl>
+                    <mat-label>Salutation</mat-label>
+                    <select matNativeControl required>
+                      <option value="Mr">Mr.</option>
+                      <option value="Mrs">Mrs.</option>
+                      <option value="Mst">Mst.</option>
+                      <option value="Miss">Miss</option>
+                    </select>
+                  </mat-form-field>    
+              <mat-form-field class="txtFirstName" appearance="fill" [(ngModel)]="firstName" name="firstName" ngDefaultControl>
+                <mat-label>First name</mat-label>
+                <input matInput required>
+              </mat-form-field>    
+              <mat-form-field class="txtLastName" appearance="fill" [(ngModel)]="lastName" name="lastName" ngDefaultControl>
+                <mat-label>Last name</mat-label>
+                <input matInput required>
+              </mat-form-field>          
+            </div> 
+            <div>
+              <mat-form-field class="datePicker" [(ngModel)] ="birthDate" name="birthDate" ngDefaultControl>
+                  <mat-label>Select birthdate</mat-label>
+                 <input matInput [matDatepicker] = "birthdate" required>
+                 <mat-datepicker-toggle [for] ="birthdate" matSuffix></mat-datepicker-toggle>
+                 <mat-datepicker #birthdate></mat-datepicker> 
+              </mat-form-field>     
+              <mat-form-field class="txtEmail" appearance="fill" [(ngModel)]="email" name="email" ngDefaultControl>
+                  <mat-label>E-mail</mat-label>
+                  <input matInput placeholder="Ex. abc@example.com" required>
+              </mat-form-field>    
+              <mat-form-field class="txtSendQuoteAt" appearance="fill" [(ngModel)]="sendQuoteAt" name="sendQuoteAt" ngDefaultControl>
+                  <mat-label>Send me quote at</mat-label>
+                  <input matInput placeholder="Your 10-digit mobile number" required>
+              </mat-form-field>          
+              </div>
+              <div>
+                <mat-form-field appearance="fill" [(ngModel)] ="aadhar" name="aadhar" class="txtAadhar" ngDefaultControl>
+                    <mat-label>Aadhar Number</mat-label>
+                    <input matInput required #aadharNumber maxlength="12">
+                    <mat-hint align="end">{{aadharNumber.value.length}} / 12</mat-hint>
+                  </mat-form-field>     
+                  <mat-form-field class ="txtIncome" appearance="fill">
+                    <mat-label>Source of income</mat-label>
+                    <select matNativeControl required  [(ngModel)]="income" name ="income">
+                        <option value="earned">Earned income</option>
+                        <option value="business">Business income</option>
+                        <option value="interest">Interest income</option>
+                        <option value="dividend">Dividend income</option>
+                        <option value="other">Other</option>
+                    </select>
+                  </mat-form-field>         
+                </div>
+                <div>
+                  <button mat-raised-button class="btnDone" type="submit" color="primary">Done</button>
+                </div>
+
+        </form>
+    </mat-expansion-panel>     
+    <mat-expansion-panel>
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+                Additional Details
+            </mat-panel-title>
+        </mat-expansion-panel-header>
+        <form>
+          <div>
+          <mat-form-field class="policyStartDate" [(ngModel)] ="policyStartDate" name="policyStartDate" ngDefaultControl>
+            <mat-label>Select Policy start date</mat-label>
+           <input matInput [matDatepicker] = "pStartDate" required [min]="minStartDate">
+           <mat-datepicker-toggle [for] ="pStartDate" matSuffix></mat-datepicker-toggle>
+           <mat-datepicker #pStartDate></mat-datepicker> 
+        </mat-form-field> 
+        <mat-form-field class="policyEndDate" [(ngModel)] ="policyEndDate" name="policyEndDate" ngDefaultControl>
+          <mat-label>Select Policy end date</mat-label>
+         <input matInput [matDatepicker] = "pEndDate" required [min]="minEndDate" >
+         <mat-datepicker-toggle [for] ="pEndDate" matSuffix></mat-datepicker-toggle>
+         <mat-datepicker #pEndDate></mat-datepicker> 
+      </mat-form-field> 
+          </div>
+          <div>
+            <p>Go Green and Make a difference!! By choosing this option, only soft copy of Policy shall be delivered to your registered mail. 
+            </p>
+            <button mat-raised-button class="btnYes" color="primary">Yes</button>
+            <button mat-raised-button class="btnNo"  color="primary">No</button>
+          </div>
+          <div>
+            <button mat-raised-button class="btnDone" color="primary">Done</button>
+          </div>
+        </form>
+    </mat-expansion-panel>      
+    <mat-expansion-panel>
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+                Security incidents and loss History
+            </mat-panel-title>
+        </mat-expansion-panel-header>
+        <form>
+          <p>Select the options that are applicable to you</p>
+            <div>
+            <mat-checkbox color="primary">
+              My family's or my computer(s) / smart device(s) has been hacked before.
+            </mat-checkbox><br>
+            <mat-checkbox color="primary">
+              My family or I have been a victim to online-fraud / defamation.
+            </mat-checkbox><br>
+            <mat-checkbox color="primary">
+              My family or I have filed a complaint or law suit in the past due to invasion of privacy or misuse of personal Information.
+            </mat-checkbox><br>
+            <mat-checkbox color="primary">
+              None of the above applies to my family or me.
+            </mat-checkbox>
+          </div>
+          <div>
+            <button mat-raised-button class="btnDone" color="primary">Done</button>
+          </div>
+        </form>
+    </mat-expansion-panel>    
+</div>  
+<div class="btnProceed">
+  
+</div>
+<!---
+<div>
+                <select class="salutation-select" id="inputGroupSalutation">
+                  <option selected>Salutation</option>
+                  <option value="Mr">Mr.</option>
+                  <option value="Mrs">Mrs.</option>
+                  <option value="Mst">Mst.</option>
+                  <option value="Miss">Miss</option>
+                </select>
+                <input type="text" class ="txtField" placeholder="First name" [(ngModel)]="firstName" name="firstName">
+                <input type="text"  class="txtField" placeholder="Last name" [(ngModel)]="lastName" name="lastName">
+              </div>
+              <div>
+                <
+                <input type="email" class="txtField" placeholder="E-mail">
+                <input type="email" class ="txtField" placeholder="Send me the quote at"> 
+              </div>
+              <div>
+                <input type="text" class="txtSsn" placeholder="SSN Number">
+                <select class="txtField" id="inputGroupIncome">
+                    <option selected>Source of income</option>
+                    <option value="earned">Earned income</option>
+                    <option value="business">Business income</option>
+                    <option value="interest">Interest income</option>
+                    <option value="dividend">Dividend income</option>
+                    <option value="other">Other</option>
+                  </select>
+              </div>   
+-----------------------------------------------------------
+              <mat-form-field class="policyEndDate" [(ngModel)] ="policyEndDate" name="policyEndDate">
+                  <mat-label>Select Policy end date</mat-label>
+                 <input matInput [matDatepicker] = "pEndDate" required [min]="minEndDate">
+                 <mat-datepicker-toggle [for] ="pEndDate" matSuffix></mat-datepicker-toggle>
+                 <mat-datepicker #pEndDate></mat-datepicker> 
+              </mat-form-field> 
+-->

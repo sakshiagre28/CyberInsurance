@@ -1,0 +1,13 @@
+.main-header{
+    height: 80px;
+    width: 100%;
+    background-color: 	#0b0b6b
+}
+
+.logo{
+    height: 50px;
+    width: 190px;
+    margin: 15px;
+    display: inline;
+}
+

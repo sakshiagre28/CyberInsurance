@@ -1,0 +1,41 @@
+.salutation-select{
+    height: 30px;
+    border-radius: 5px;
+	width: 100px;
+    border-color: 1px solid black;
+}
+
+.txtFirstName,.txtLastName ,.txtEmail,.txtSendQuoteAt,.policyEndDate{
+    margin-left: 40px;
+    }
+
+.txtAadhar{
+    width: 275px;
+
+}
+.txtIncome{
+    width: 275px;
+    margin-left: 40px;
+}
+
+.btnDone{
+    margin-left : 300px;
+}
+.btnYes{
+    background-color: green;
+}
+
+.btnNo{
+    background-color: red;
+    margin-left: 35px;
+}
+p{
+    color: royalblue;
+    font-size: 15px;
+}
+
+.btnProceed{
+    margin-top: 20px;
+    text-align: center;
+
+}

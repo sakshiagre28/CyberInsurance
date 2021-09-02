@@ -1,0 +1,16 @@
+<mat-horizontal-stepper #stepper>
+    <mat-step label ="Choose my plan">
+      <app-choose-my-plan></app-choose-my-plan>
+      <button mat-raised-button class="btnProceed" color="primary" (click)="goForwardClick(stepper)">Proceed</button>
+    </mat-step>
+    <mat-step label ="Provide my details">
+      <app-provide-my-details></app-provide-my-details>
+      <button mat-raised-button class="btnProceed" color="primary" (click)="goForwardClick(stepper)">Proceed</button>
+    </mat-step>
+    <mat-step label ="Review and pay">
+      <app-review-and-pay></app-review-and-pay>
+    </mat-step>
+    <mat-step label ="Get my policy">
+      <app-get-policy></app-get-policy>
+    </mat-step>
+  </mat-horizontal-stepper>
