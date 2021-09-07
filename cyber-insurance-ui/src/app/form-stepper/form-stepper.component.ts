@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatStepper } from '@angular/material/stepper';
+import { UserService } from 'src/services/user.service';
 
 @Component({
   selector: 'app-form-stepper',
@@ -8,13 +10,20 @@ import { MatStepper } from '@angular/material/stepper';
 })
 export class FormStepperComponent implements OnInit {
 
-  constructor() { }
+  constructor(private userService: UserService,private snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
   }
 
   goForwardClick(stepper : MatStepper){
-    
-      stepper.next();
+      if(this.userService.currentUser.plan!= null){ 
+        stepper.next();
+      }
+      else{
+        this.snackBar.open('Please select a plan','OK',{
+          horizontalPosition: 'end',
+          verticalPosition:'top'
+        })
+      }
   }
 }

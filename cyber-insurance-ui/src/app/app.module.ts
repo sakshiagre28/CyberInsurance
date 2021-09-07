@@ -25,6 +25,11 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatCardModule} from '@angular/material/card'
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import {MatTableModule} from '@angular/material/table';
+import { PlanService } from 'src/services/plan.service';
+import { UserService } from 'src/services/user.service';
+import { HttpClientModule } from '@angular/common/http';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 const appRoutes : Routes =[
   {path : 'getStarted', component : LandingScreenComponent},
@@ -58,9 +63,15 @@ const appRoutes : Routes =[
     MatCheckboxModule,
     MatCardModule,
     MatToolbarModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    MatTableModule,
+    HttpClientModule,
+    MatSnackBarModule
   ],
-  providers: [],
+  providers: [
+    PlanService,
+    UserService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,6 +1,6 @@
 <div class="content">
     <div fxLayout="row wrap" fxLayoutGap="16px">
-      <div fxFlex="25%" fxFlex.xs="100%" fxFlex.sm="33%" *ngFor="let plan of plans">
+      <div fxFlex="25%" fxFlex.xs="100%" fxFlex.sm="33%" *ngFor="let plan of plans;let  i =index">
         <mat-card class="mat-elevation-z4" >
           <mat-card-header>
             <mat-card-title></mat-card-title>
@@ -8,12 +8,14 @@
           
           <mat-card-content class="cardContent">
               <div class="cardTitle">Sum Insured</div>
-            <p>
-                {{plan}} : Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-            </p>
+            <div class="cardSection1">
+                Rs. {{plan.sumAssured}}<br>
+                <br>
+                <div class="cardSection2">Rs. {{plan.planCost}}</div>
+            </div>
           </mat-card-content>
           <mat-card-actions class="cardContent">
-            <button mat-stroked-button color="primary" (click)="isClicked = !isClicked" >{{ isClicked == true ? 'Selected' : 'Select' }}</button>
+            <button mat-stroked-button color="primary" (click)="onPlanClick(plan.planId,i)" >{{planClicked[i]}}</button>
             
           </mat-card-actions>
         </mat-card>

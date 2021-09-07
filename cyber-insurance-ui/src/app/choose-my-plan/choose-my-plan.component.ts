@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { IPlan } from 'src/models/plan';
+import { PlanService } from 'src/services/plan.service';
+import { UserService } from 'src/services/user.service';
 
 @Component({
   selector: 'app-choose-my-plan',
@@ -7,15 +10,37 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ChooseMyPlanComponent implements OnInit {
 
-  constructor() { }
-  plans : Array<string> = ['Plan1','Plan2','Plan3','Plan4','plan5'] //temporary
+  constructor(private planService : PlanService,private userService: UserService) { }
+  plans : IPlan[] = [] //temporary
   isClicked :boolean = false;
   isMalwareSelected : boolean = false;
+  planClicked :any;
+ 
   ngOnInit(): void {
+    this.planService.getAllPlans().subscribe(data =>{
+      this.plans = data;
+      this.planClicked = Array.from({length: this.plans.length}).fill('Select');  
+    })
+  }
+
+  onPlanClick(planId,i){
+    
+    if(this.planClicked[i] == "Select"){
+    this.planClicked[i] = "Selected"
+    }
+    else{
+      this.planClicked[i] = "Select"
+      planId = 0;
+    }
+    
+    if(planId != 0){
+      this.userService.savePlan(planId);
+    }
   }
 
   onMalwareClick(){
     this.isMalwareSelected = !this.isMalwareSelected;
-    console.log(this.isMalwareSelected)
+    this.userService.saveMalwareFlag(this.isMalwareSelected)
+    
   }
 }
