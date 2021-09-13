@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { IPlan } from 'src/models/plan';
+import { PassDataService } from 'src/services/pass-data.service';
 import { PlanService } from 'src/services/plan.service';
 import { UserService } from 'src/services/user.service';
-
+import * as inclusions from '../../assets/staticData/inclusions.json'
 @Component({
   selector: 'app-choose-my-plan',
   templateUrl: './choose-my-plan.component.html',
@@ -10,17 +11,26 @@ import { UserService } from 'src/services/user.service';
 })
 export class ChooseMyPlanComponent implements OnInit {
 
-  constructor(private planService : PlanService,private userService: UserService) { }
+  constructor(private planService : PlanService,private userService: UserService,private passDataService: PassDataService) { }
   plans : IPlan[] = [] //temporary
   isClicked :boolean = false;
   isMalwareSelected : boolean = false;
   planClicked :any;
- 
+  inclusionList :any
+  exclusionList : any
   ngOnInit(): void {
     this.planService.getAllPlans().subscribe(data =>{
       this.plans = data;
       this.planClicked = Array.from({length: this.plans.length}).fill('Select');  
     })
+    this.planService.getInclusions().subscribe(data=>{
+      this.inclusionList =data
+    })
+
+    this.planService.getExclusions().subscribe(data=>{
+      this.exclusionList = data
+    })
+    console.log(this.inclusionList)
   }
 
   onPlanClick(planId,i){
@@ -33,9 +43,9 @@ export class ChooseMyPlanComponent implements OnInit {
       planId = 0;
     }
     
-    if(planId != 0){
-      this.userService.savePlan(planId);
-    }
+    
+        this.userService.savePlan(planId);
+        this.passDataService.updateData(planId)
   }
 
   onMalwareClick(){

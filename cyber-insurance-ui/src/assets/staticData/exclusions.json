@@ -1,0 +1,18 @@
+[   
+    {   
+        "name":"Intentional Loss & Pre Existing Loss",
+        "descr":"Insurer won’t be able to compensate for an intentional/deliberate fraudulent act. Benefits of our partnership only begin once Prospect sign up for the policy. Not much Insurer can do before that."
+    },
+    {   
+        "name":"Delayed Claims",
+        "descr":"Unfortunately Insurer won’t be able to do much about claims reported after six months of occurrence."
+    },
+    {   
+        "name":"Unexplained Loss",
+        "descr":"There’s nothing more intriguing than solving a mystery. But losses that cannot be explained or traced, or mysterious disappearances, shall not be covered"
+    },
+    {   
+        "name":"Offline activity",
+        "descr":"While Insurer promises to protect the prospect in the digital space, Insurer cant do much in the offline space under any plan."
+    }
+]

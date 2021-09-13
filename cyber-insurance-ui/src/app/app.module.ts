@@ -30,6 +30,10 @@ import { PlanService } from 'src/services/plan.service';
 import { UserService } from 'src/services/user.service';
 import { HttpClientModule } from '@angular/common/http';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
+import { PassDataService } from 'src/services/pass-data.service';
+import {MatDialogModule} from '@angular/material/dialog';
+import { BehaviorSubject } from 'rxjs';
+import { AgreementDialogComponent } from './agreement-dialog/agreement-dialog.component';
 
 const appRoutes : Routes =[
   {path : 'getStarted', component : LandingScreenComponent},
@@ -44,7 +48,11 @@ const appRoutes : Routes =[
     ProvideMyDetailsComponent,
     ReviewAndPayComponent,
     GetPolicyComponent,
-    LandingScreenComponent
+    LandingScreenComponent,
+    AgreementDialogComponent
+  ],
+  entryComponents :[
+    AgreementDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -66,11 +74,15 @@ const appRoutes : Routes =[
     FlexLayoutModule,
     MatTableModule,
     HttpClientModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatDialogModule,
+    
   ],
   providers: [
     PlanService,
-    UserService
+    UserService,
+    PassDataService,
+   
   ],
   bootstrap: [AppComponent]
 })

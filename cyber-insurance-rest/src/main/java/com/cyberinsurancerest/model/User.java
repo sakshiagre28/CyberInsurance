@@ -1,12 +1,10 @@
 package com.cyberinsurancerest.model;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -67,7 +65,6 @@ public class User {
 		this.aadhar = aadhar;
 		this.income = income;
 		this.plan =plan;
-		//this.policyId = policyId;
 		this.policyStartDate = policyStartDate;
 		this.policyEndDate = policyEndDate;
 		this.zipcode = zipcode;

@@ -1,3 +1,18 @@
 ::ng-deep .mat-stepper-horizontal-line {
     flex: none !important;
+    
   }
+
+.stepperContainer{
+  width: fit-content;
+    margin: 0 auto;
+}
+
+.mat-step-container{
+  text-align: center;
+  align-items: center;
+}
+
+.btnProceed{
+    margin: 20px 0px 0px 400px;
+}

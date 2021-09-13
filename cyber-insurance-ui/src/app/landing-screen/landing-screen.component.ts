@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { UserService } from 'src/services/user.service';
 
@@ -11,10 +12,10 @@ import { UserService } from 'src/services/user.service';
 export class LandingScreenComponent implements OnInit {
  
   
-  constructor(private router : Router,private userService: UserService) { }
+  constructor(private router : Router,private userService: UserService, private snackBar : MatSnackBar) { }
   getStartedForm= new FormGroup({
-    zipCode : new FormControl(''),
-    name : new FormControl('')
+    zipCode : new FormControl('',[Validators.required, Validators.minLength(6),Validators.maxLength(6)]),
+    name : new FormControl('',Validators.required)
   })
 
 
@@ -22,8 +23,18 @@ export class LandingScreenComponent implements OnInit {
 
   }
   getAQuoteClick(){
-    //console.log(this.getStartedForm.value)
-    this.userService.saveUserNameZipcode(this.getStartedForm.controls['name'].value,this.getStartedForm.controls['zipCode'].value,)
-    this.router.navigate(['/fillDetails'])
+    if(this.getStartedForm.valid){
+      this.userService.saveUserNameZipcode(this.getStartedForm.controls['name'].value,this.getStartedForm.controls['zipCode'].value,)
+      this.router.navigate(['/fillDetails'])
+    }
+    else{
+      this.snackBar.open('Please enter a valid zipcode and name','OK',{
+        horizontalPosition: 'end',
+        verticalPosition:'top',
+        duration : 3000,
+        
+      });
+    
+    }
   }
 }

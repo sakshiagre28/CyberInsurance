@@ -1,16 +1,19 @@
+<div class="stepperContainer">
 <mat-horizontal-stepper #stepper>
-    <mat-step label ="Choose my plan">
+    <mat-step label ="Choose my plan" class="mat-step-container">
       <app-choose-my-plan></app-choose-my-plan>
-      <button mat-raised-button class="btnProceed" color="primary" (click)="goForwardClick(stepper)">Proceed</button>
+      <button mat-raised-button class="btnProceed" color="primary" (click)="goToStepper2(stepper)">Proceed</button>
     </mat-step>
-    <mat-step label ="Provide my details">
+    <mat-step label ="Provide my details" class="mat-step-container">
       <app-provide-my-details></app-provide-my-details>
-      <button mat-raised-button class="btnProceed" color="primary" (click)="goForwardClick(stepper)">Proceed</button>
+      <button mat-raised-button class="btnProceed" color="primary" (click)="goToStepper3(stepper)">Proceed</button>
     </mat-step>
-    <mat-step label ="Review and pay">
+    <mat-step label ="Review and pay" class="mat-step-container">
       <app-review-and-pay></app-review-and-pay>
+      <button mat-raised-button class="btnProceed" color="primary" [disabled] ="!proceedToGetPolicy" (click)="goToStepper4(stepper)">Proceed</button>
     </mat-step>
-    <mat-step label ="Get my policy">
+
+    <mat-step label ="Get my policy" class="mat-step-container">
       <app-get-policy></app-get-policy>
     </mat-step>
-  </mat-horizontal-stepper>
+  </mat-horizontal-stepper></div>

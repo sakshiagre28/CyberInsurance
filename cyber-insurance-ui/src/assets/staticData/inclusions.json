@@ -1,0 +1,26 @@
+[
+    {
+        "name" : "Unauthorized online transactions",
+        "descr":"Protects the hard-earned money with a plan that provides the prospect with a 100% cover against fraudulent online purchases on the bank account, credit/ debit card or e-wallet"    
+    },
+    {
+        "name" :"Phishing & Email Spoofing",
+        "descr":"Pure Financial loss sustained by Insured by being an innocent victim of an act of Phishing by a third party. Prosecution costs against a Third party for phishing attack"
+    },
+    {
+        "name" : "Damage to e-reputation",
+        "descr":"It takes only a few seconds for a troll to tarnish your reputation in the digital world. With E-Protect stay shielded against such threats."    
+    },
+    {
+        "name" : "Identity theft",
+        "descr":"Defense costs as a result of any claim by affected party. Prosecution costs against a Third party for identity theft. Costs of transportation to court and photocopying of documents"    
+    },
+    {
+        "name" : "Cyber bullying",
+        "descr":"Protects the prospect against cyber bullying against messages sent to the prospect which are intimidating or threatening nature."    
+    },
+    {
+        "name" : "e-Extortion",
+        "descr":"Protects the prospect against blackmailers and ransomware attacks. Prosecution costs against a Third party for Cyber Extortion"    
+    }
+]

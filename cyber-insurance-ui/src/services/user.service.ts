@@ -14,13 +14,14 @@ const httpOptions = {
 export class UserService {
 
   constructor(private http: HttpClient) { }
+ 
   currentUser : IUser = {
     salutation: "",firstName:localStorage.getItem('firstName'),lastName:"",birthDate:"",email:"",sendQuoteAt:"",aadhar:"",
     income:"",policyEndDate:"",policyStartDate:"",zipcode:localStorage.getItem('zipcode'),
-    plan :null,isMalwareSelected:JSON.parse(localStorage.getItem("isMalwareSelected")),
+    plan :0,isMalwareSelected:JSON.parse(localStorage.getItem("isMalwareSelected")),
     quotationNumber : 0
   };
-  currentPlan :IPlan
+  currentPlan :number
   
   saveUserDetails(userDetails :any){
      this.currentUser.salutation = userDetails.salutation;
@@ -48,11 +49,9 @@ export class UserService {
   }
 
   savePlan(plan : number){
-    this.http.get<IPlan>(AUTH_API+'getPlan/'+plan).subscribe(data=>{
-      this.currentPlan = data
-      this.currentUser.plan = this.currentPlan
-
-    })
+    
+      this.currentUser.plan = plan
+      localStorage.setItem('plan',this.currentUser.plan.toString())
     
   }
   saveMalwareFlag(malware : boolean){
@@ -65,4 +64,6 @@ export class UserService {
     var quoteNumber  = Math.floor(Math.random()*10000)
     this.currentUser.quotationNumber = quoteNumber
   }
+
+
 }

@@ -1,6 +1,6 @@
 <div class="content">
     <div fxLayout="row wrap" fxLayoutGap="16px">
-      <div fxFlex="25%" fxFlex.xs="100%" fxFlex.sm="33%" *ngFor="let plan of plans;let  i =index">
+      <div fxFlex="25%" fxFlex.xs="100%" fxFlex.sm="33%" *ngFor="let plan of plans;let  i =index" class="planCardContainer">
         <mat-card class="mat-elevation-z4" >
           <mat-card-header>
             <mat-card-title></mat-card-title>
@@ -30,22 +30,46 @@
                 View Coverages
             </mat-panel-title>
         </mat-expansion-panel-header>
-
+        <div class="inclusions">
+          INCLUSIONS
+        </div>
         <div class="mainContainer"  fxLayout="row wrap" fxLayoutGap="15px">
-          <div class="cardContainer" fxFlex="29%" *ngFor="let plan of plans">
+          <div class="cardContainer" fxFlex="29%" *ngFor="let i of inclusionList">
             <div class ="card">
               <div class="front">
-                <div class="title">{{plan}}</div>
+                <div class="title">{{i.name}}</div>
+              </div>
+              <div>
+                <img class ="greenTick" src ="../../assets/images/greentick2.png">
               </div>
               <div class="back">
-                <div class="cardDescr"> Back</div>
+                <div class="cardDescr">{{i.descr}}</div>
+              </div>
+            </div>
+  
+          </div>
+        </div>
+        <div class="exclusions">
+          EXCLUSIONS
+        </div>
+        <div class="mainContainer"  fxLayout="row wrap" fxLayoutGap="15px">
+          <div class="cardContainer" fxFlex="29%" *ngFor="let i of exclusionList">
+            <div class ="card">
+              <div class="front">
+                <div class="title">{{i.name}}</div>
+              </div>
+              <div>
+                <img class ="greenTick" src ="../../assets/images/cross.png">
+              </div>
+              <div class="back">
+                <div class="cardDescr">{{i.descr}}</div>
               </div>
             </div>
   
           </div>
         </div>
     </mat-expansion-panel> 
-    <div style="margin: 20px 0px 15px 5px; font-size: 15px;color: #0b0b6b;">
+    <div style="margin: 20px 0px 0px 5px; font-size: 15px;color: #0b0b6b;">
       Select add on Cover
       <button mat-stroked-button class="btnMalware" (click)="onMalwareClick()" [ngClass]="{'btnMalwareSelected' : isMalwareSelected}">{{ isMalwareSelected == false ? 'Malware' : 'Malware Added' }}</button>
     </div>

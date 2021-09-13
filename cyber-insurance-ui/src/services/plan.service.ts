@@ -13,4 +13,11 @@ export class PlanService {
   getAllPlans(): Observable<IPlan[]>{
     return this.http.get<IPlan[]>('http://localhost:2211/getAllPlans')
   }
+
+  getInclusions():Observable<any>{
+    return this.http.get<any>('../assets/staticData/inclusions.json')
+  }
+  getExclusions():Observable<any>{
+    return this.http.get<any>('../assets/staticData/exclusions.json')
+  }
 }

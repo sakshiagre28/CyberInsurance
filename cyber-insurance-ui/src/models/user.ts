@@ -11,7 +11,7 @@ export interface IUser{
     income : string,
     policyStartDate : string,
     policyEndDate : string,
-    plan : IPlan,
+    plan : number,
     zipcode: string,
     isMalwareSelected : boolean,
     quotationNumber: number

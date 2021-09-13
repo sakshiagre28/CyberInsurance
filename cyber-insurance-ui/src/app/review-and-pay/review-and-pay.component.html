@@ -1,6 +1,6 @@
 <div class="content">
     <div fxLayout="row wrap" fxLayoutGap="16px">
-      <div fxFlex="25%" fxFlex.xs="100%" fxFlex.sm="33%">
+      <div fxFlex="50%" fxFlex.xs="100%" fxFlex.sm="33%">
         <mat-card class="mat-elevation-z4" >
           <mat-card-header>
             <mat-card-title></mat-card-title>
@@ -13,35 +13,28 @@
                       <th> Sum insured</th>
                   </tr>
                   <tr>
-                      <td>
-                          Digital security
-                      </td>
-                      <td>
-                          rs 12000
-                      </td>
+                      <td>Digital security</td>
+                      <td>Rs {{selectedPlan.sumAssured}}</td>
                   </tr>
 
               </table><br><br>
+              <div>Premium details</div>
               <table> 
-                  <thead>Premium details</thead>
-                <td>
-                    Digital security
-                </td>
-                <td>
-                    rs 550
-                </td>
+                  
+                <td>Premium Cost</td>
+                <td>Rs {{selectedPlan.planCost}}</td>
                 <tr>
-                    <td>
-                       Tax
-                    </td>
-                    <td>
-                        rs 15
-                    </td>
+                    <td>Tax </td>
+                    <td>Rs. {{tax}}</td>
+                </tr>
+                <tr>
+                  <td>Malware Coverage</td>
+                  <td>Rs. {{malware}}</td>
                 </tr>
                 <hr>
                 <tr>
-                   <td>total premium </td> 
-                   <td>rs 565</td>
+                   <td>Total premium </td> 
+                   <td>Rs. {{totalPremium}}</td>
                 </tr>
 
 
@@ -51,7 +44,7 @@
 
           </mat-card-content>
           <mat-card-actions class="cardContent">
-            <button mat-raised-button color="primary" class="btnBuyNow">Buy now</button>
+            <button mat-raised-button color="primary" class="btnBuyNow" (click)="buyNowClick()">Buy now</button>
             
           </mat-card-actions>
         </mat-card>

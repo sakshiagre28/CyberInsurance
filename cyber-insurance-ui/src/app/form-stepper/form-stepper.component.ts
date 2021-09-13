@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatStepper } from '@angular/material/stepper';
+import { PassDataService } from 'src/services/pass-data.service';
 import { UserService } from 'src/services/user.service';
 
 @Component({
@@ -10,20 +11,34 @@ import { UserService } from 'src/services/user.service';
 })
 export class FormStepperComponent implements OnInit {
 
-  constructor(private userService: UserService,private snackBar: MatSnackBar) { }
-
+  constructor(private userService: UserService,private snackBar: MatSnackBar,private dataService : PassDataService) { }
+  proceedToGetPolicy: any
   ngOnInit(): void {
+    this.dataService.proceedToGetPolicyValue.subscribe(data=>{
+      this.proceedToGetPolicy = data;
+      console.log("rap "+this.proceedToGetPolicy)
+    })
   }
 
-  goForwardClick(stepper : MatStepper){
-      if(this.userService.currentUser.plan!= null){ 
+  goToStepper1(){
+
+  }
+  goToStepper2(stepper : MatStepper){
+      if(this.userService.currentUser.plan != 0){ 
         stepper.next();
       }
       else{
         this.snackBar.open('Please select a plan','OK',{
           horizontalPosition: 'end',
-          verticalPosition:'top'
+          verticalPosition:'top',
+          duration:3000
         })
       }
   }
+  goToStepper3(stepper : MatStepper){
+
+  }
+  goToStepper4(stepper : MatStepper){
+    stepper.next()
+  }   
 }
