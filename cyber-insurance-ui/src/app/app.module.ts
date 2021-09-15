@@ -34,11 +34,17 @@ import { PassDataService } from 'src/services/pass-data.service';
 import {MatDialogModule} from '@angular/material/dialog';
 import { BehaviorSubject } from 'rxjs';
 import { AgreementDialogComponent } from './agreement-dialog/agreement-dialog.component';
+import { ReportComponent } from './report/report.component';
+import { ReportPdfService } from 'src/services/report-pdf.service';
+import { RetrieveQuoteLoginComponent } from './retrieve-quote-login/retrieve-quote-login.component';
+import { RetrieveQuoteDisplayComponent } from './retrieve-quote-display/retrieve-quote-display.component';
 
 const appRoutes : Routes =[
   {path : 'getStarted', component : LandingScreenComponent},
   {path : '', redirectTo :'getStarted' ,pathMatch: 'full'},
-  {path : 'fillDetails', component : FormStepperComponent}
+  {path : 'fillDetails', component : FormStepperComponent},
+  {path : 'retrieveQuoteLogin',component: RetrieveQuoteLoginComponent},
+  {path :'retrieveQuote', component :RetrieveQuoteDisplayComponent}
 ]
 @NgModule({
   declarations: [
@@ -49,7 +55,10 @@ const appRoutes : Routes =[
     ReviewAndPayComponent,
     GetPolicyComponent,
     LandingScreenComponent,
-    AgreementDialogComponent
+    AgreementDialogComponent,
+    ReportComponent,
+    RetrieveQuoteLoginComponent,
+    RetrieveQuoteDisplayComponent
   ],
   entryComponents :[
     AgreementDialogComponent
@@ -82,7 +91,7 @@ const appRoutes : Routes =[
     PlanService,
     UserService,
     PassDataService,
-   
+    ReportPdfService
   ],
   bootstrap: [AppComponent]
 })

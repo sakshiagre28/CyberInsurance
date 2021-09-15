@@ -1,0 +1,42 @@
+
+.main-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 100px;
+}
+.mat-elevation-z4{
+    text-align: center;
+}
+mat-form-field{
+    margin : 5px
+}
+
+.container-heading{
+    position: relative;
+    text-align: center;
+    top: 20px;
+    font-size: 25px;
+    font-style: oblique;
+}
+
+.txtZipcode{
+    margin: 30px 0px 30px 0px;
+    height: 40px;
+    border-radius: 5px;
+	width: 275px;
+}
+.txtName{
+    margin-bottom: 30px;
+    height: 40px;
+    border-radius: 5px;
+	width: 275px;
+}
+
+.container-input{
+    margin-left: 100px;
+}
+.btn-primary{
+    margin-left: 50px;
+    background-color: #0b0b6b;
+}

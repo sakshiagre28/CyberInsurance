@@ -6,10 +6,12 @@
     </mat-step>
     <mat-step label ="Provide my details" class="mat-step-container">
       <app-provide-my-details></app-provide-my-details>
+      <button mat-raised-button class="btnBack" color="primary" (click)="goToPrevious(stepper)">Back</button>
       <button mat-raised-button class="btnProceed" color="primary" (click)="goToStepper3(stepper)">Proceed</button>
     </mat-step>
     <mat-step label ="Review and pay" class="mat-step-container">
       <app-review-and-pay></app-review-and-pay>
+      <button mat-raised-button class="btnBack" color="primary" (click)="goToPrevious(stepper)">Back</button>
       <button mat-raised-button class="btnProceed" color="primary" [disabled] ="!proceedToGetPolicy" (click)="goToStepper4(stepper)">Proceed</button>
     </mat-step>
 

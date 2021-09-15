@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { BehaviorSubject } from 'rxjs/internal/BehaviorSubject';
 import { IPlan } from 'src/models/plan';
+import { IUser } from 'src/models/user';
 @Injectable({
   providedIn: 'root'
 })
@@ -23,5 +24,27 @@ export class PassDataService {
   public proceedToGetPolicyValue = this.proceedToGetPolicyBehSub.asObservable();
   proceedToGetPolicy(value :boolean){
     this.proceedToGetPolicyBehSub.next(value)
+  }
+
+  private proceedToReviewAndPayBehSub1 = new BehaviorSubject<boolean>(false)
+  public proceedToReviewAndPayValue1 = this.proceedToReviewAndPayBehSub1.asObservable();
+  private proceedToReviewAndPayBehSub2 = new BehaviorSubject<boolean>(false)
+  public proceedToReviewAndPayValue2 = this.proceedToReviewAndPayBehSub2.asObservable();
+  proceedToReviewAndPay(value1 :boolean,value2 :boolean){
+    this.proceedToReviewAndPayBehSub1.next(value1)
+    this.proceedToReviewAndPayBehSub2.next(value2)
+  }
+
+  tempUser : IUser = {
+    salutation: "",firstName:"",lastName:"",birthDate:"",
+    email:"",sendQuoteAt:"",aadhar:"",
+    income:"",policyEndDate:"",policyStartDate:"",zipcode:"",
+    plan :101,isMalwareSelected: false,
+    quotationNumber : 0
+  };
+  private loggedInUserBehSub = new BehaviorSubject<IUser>(this.tempUser)
+  public loggedInUser = this.loggedInUserBehSub.asObservable();
+  passLoggedInUser(user: IUser){
+    this.loggedInUserBehSub.next(user)
   }
 }

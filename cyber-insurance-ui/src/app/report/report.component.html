@@ -1,11 +1,5 @@
-<div id = "pdfData" class="pdfData">
-    <div style="height: 70px;">
-        <div class="heading">
-            Quotation Ref No. {{finalUser.quotationNumber}}
-        </div>
-        <span></span>
-    </div>
-    <table class="detailsTable">
+<div id = "pdfData">
+    <table>
         <tr>
             <td>First Name</td>
             <td>{{finalUser.firstName}}</td>
@@ -44,16 +38,16 @@
         </tr>
         <tr>
             <td>Zipcode</td>
-            <td>{{finalUser.zipcode}}</td>
+            <td>{{finalUser.zipCode}}</td>
         </tr>
         <tr>
             <td>Plan</td>
             <td>{{finalUser.plan}}</td>
         </tr>
-        
+        <tr>
+            <td>Quotation Reference number</td>
+            <td>{{finalUser.quotationNumber}}</td>
+        </tr>
 
     </table>
-</div>
-<div class="btnDiv">
-Thanks for choosing E-protect.<button mat-raised-button color= "primary" class ="btnGetPolicy" (click) = "getPolicyReport()">Download policy</button>
 </div>

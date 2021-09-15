@@ -14,8 +14,8 @@ export class LandingScreenComponent implements OnInit {
   
   constructor(private router : Router,private userService: UserService, private snackBar : MatSnackBar) { }
   getStartedForm= new FormGroup({
-    zipCode : new FormControl('',[Validators.required, Validators.minLength(6),Validators.maxLength(6)]),
-    name : new FormControl('',Validators.required)
+    zipCode : new FormControl('',[Validators.required, Validators.minLength(6),Validators.maxLength(6),Validators.pattern("^[0-9]*$")]),
+    name : new FormControl('',[Validators.required,Validators.pattern('^[a-zA-Z ]*$')])
   })
 
 

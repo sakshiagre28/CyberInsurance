@@ -22,4 +22,20 @@ public class UserService {
 		}
 		
 	}
+	
+	public User getUserByQuotationNumber(long quotationNumber) {
+		User user = userRepository.findByQuotationNumber(quotationNumber);
+		return user;
+	}
+	
+	public User retrieveQuoteLogin(long quotationNumber, String mobile) {
+		User user = userRepository.findByQuotationNumber(quotationNumber);
+		if(user.getSendQuoteAt().equalsIgnoreCase(mobile)) {
+			return user;
+		}
+		else {
+			return null;
+		}
+	}
+	
 }

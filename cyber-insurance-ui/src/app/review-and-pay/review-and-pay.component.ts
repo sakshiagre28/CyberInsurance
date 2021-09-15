@@ -23,8 +23,8 @@ export class ReviewAndPayComponent implements OnInit {
     this.passDataService.plan.subscribe(x => 
       {
         this.selectedPlan = x
-        this.tax = 0.18 * x.planCost;
-        this.totalPremium =1.18 * x.planCost
+        this.tax = Math.ceil(0.18 * x.planCost);
+        this.totalPremium = Math.ceil(1.18 * x.planCost)
 
       });
     this.malware = localStorage.getItem('isMalwareSelected')=='true' ? 0.1*this.selectedPlan.planCost : 0

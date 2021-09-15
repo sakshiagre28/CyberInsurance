@@ -1,0 +1,62 @@
+<div id = "pdfData" class="mainContainer">
+    <div style="height: 70px;">
+        <div class="heading">
+            Quotation Ref No. {{loggedInUser.quotationNumber}}
+        </div>
+        <span></span>
+    </div>
+    <table class="detailsTable">
+        <tr>
+            <td align="right">First Name:</td>
+            <td>{{loggedInUser.firstName}}</td>
+        </tr>
+        <tr>
+            <td align="right">Last Name:</td>
+            <td>{{loggedInUser.lastName}}</td>
+        </tr>
+        <tr>
+            <td align="right">DOB:</td>
+            <td>{{loggedInUser.birthDate}}</td>
+        </tr>
+        <tr>
+            <td align="right">email:</td>
+            <td>{{loggedInUser.email}}</td>
+        </tr>
+        <tr>
+            <td align="right">Contact:</td>
+            <td>{{loggedInUser.sendQuoteAt}}</td>
+        </tr>
+        <tr>
+            <td align="right">Aadhar:</td>
+            <td>{{loggedInUser.aadhar}}</td>
+        </tr>
+        <tr>
+            <td align="right">Income:</td>
+            <td>{{loggedInUser.income}}</td>
+        </tr>
+        <tr>
+            <td align="right">Policy Start Date:</td>
+            <td>{{loggedInUser.policyStartDate}}</td>
+        </tr>
+        <tr>
+            <td align="right">Policy End Date:</td>
+            <td>{{loggedInUser.policyEndDate}}</td>
+        </tr>
+        <tr>
+            <td align="right" style="margin-right: 200px;">Zipcode:</td>
+            <td>{{loggedInUser.zipcode}}</td>
+        </tr>
+        <tr>
+            <td align="right">Plan Cost:</td>
+            <td>Rs. {{loggedInUserPlan.planCost}}</td>
+        </tr>
+        <tr>
+            <td align="right">Plan Assured:</td>
+            <td>Rs. {{loggedInUserPlan.sumAssured}}</td>
+        </tr>
+
+    </table>
+</div>
+<div class="btnDiv">
+Thanks for choosing E-protect.<button mat-raised-button color= "primary" class ="btnGetPolicy" (click) = "downloadQuote()">Download policy</button>
+</div>

@@ -21,11 +21,11 @@ public class User {
 	@Column
 	private String lastName;
 	@Column
-	private String dob;
+	private String birthDate;
 	@Column
 	private String email;
 	@Column
-	private String phone;
+	private String sendQuoteAt;
 	@Column
 	private String aadhar;
 	@Column
@@ -39,9 +39,9 @@ public class User {
 	@Column
 	private String zipcode;
 	@Column 
-	private boolean malwareSelected;
+	private boolean isMalwareSelected;
 	@Column
-	private String quotationNumber; 
+	private long quotationNumber; 
 	
 	private int plan;
 	public int getPlan() {
@@ -51,24 +51,24 @@ public class User {
 		this.plan = plan;
 	}
 	public User() {}
-	public User(int userId, String salutation, String firstName, String lastName, String dob, 
-			String email,String phone, String aadhar, String income, String policyStartDate, 
-			String policyEndDate, String zipcode, boolean malwareSelected, String quotationNumber,int plan) {
+	public User(int userId, String salutation, String firstName, String lastName, String birthDate, 
+			String email,String sendQuoteAt, String aadhar, String income, String policyStartDate, 
+			String policyEndDate, String zipcode, boolean isMalwareSelected, long quotationNumber,int plan) {
 		super();
 		this.userId = userId;
 		this.salutation = salutation;
 		this.firstName = firstName;
 		this.lastName = lastName;
-		this.dob = dob;
+		this.birthDate = birthDate;
 		this.email = email;
-		this.phone = phone;
+		this.sendQuoteAt = sendQuoteAt;
 		this.aadhar = aadhar;
 		this.income = income;
 		this.plan =plan;
 		this.policyStartDate = policyStartDate;
 		this.policyEndDate = policyEndDate;
 		this.zipcode = zipcode;
-		this.malwareSelected = malwareSelected;
+		this.isMalwareSelected = isMalwareSelected;
 		this.quotationNumber = quotationNumber;
 	}
 	public int getUserId() {
@@ -95,11 +95,11 @@ public class User {
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
-	public String getDob() {
-		return dob;
+	public String getBirthDate() {
+		return birthDate;
 	}
-	public void setDob(String dob) {
-		this.dob = dob;
+	public void setBirthDate(String birthDate) {
+		this.birthDate = birthDate;
 	}
 	public String getEmail() {
 		return email;
@@ -107,11 +107,11 @@ public class User {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public String getPhone() {
-		return phone;
+	public String getSendQuoteAt() {
+		return sendQuoteAt;
 	}
-	public void setPhone(String phone) {
-		this.phone = phone;
+	public void setSendQuoteAt(String sendQuoteAt) {
+		this.sendQuoteAt = sendQuoteAt;
 	}
 	public String getAadhar() {
 		return aadhar;
@@ -144,16 +144,16 @@ public class User {
 	public void setZipcode(String zipcode) {
 		this.zipcode = zipcode;
 	}
-	public boolean isMalwareSelected() {
-		return malwareSelected;
+	public boolean getIsMalwareSelected() {
+		return isMalwareSelected;
 	}
-	public void setMalwareSelected(boolean malwareSelected) {
-		this.malwareSelected = malwareSelected;
+	public void setIsMalwareSelected(boolean isMalwareSelected) {
+		this.isMalwareSelected = isMalwareSelected;
 	}
-	public String getQuotationNumber() {
+	public long getQuotationNumber() {
 		return quotationNumber;
 	}
-	public void setQuotationNumber(String quotationNumber) {
+	public void setQuotationNumber(long quotationNumber) {
 		this.quotationNumber = quotationNumber;
 	}
 
