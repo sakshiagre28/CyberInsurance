@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import html2canvas from 'html2canvas';
-import jsPDF from 'jspdf';
-import { ReportPdfService } from 'src/services/report-pdf.service';
 import { UserService } from 'src/services/user.service';
 
 @Component({
@@ -11,9 +9,8 @@ import { UserService } from 'src/services/user.service';
 })
 export class ReportComponent implements OnInit {
 
-  constructor(private userService : UserService,private reportPdfservice : ReportPdfService) { }
+  constructor(private userService : UserService) { }
   finalUser : any = this.userService.currentUser
-  element = document.getElementById('pdfData')
   ngOnInit(): void {
     
   }

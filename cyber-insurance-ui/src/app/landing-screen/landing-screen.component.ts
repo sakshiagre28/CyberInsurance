@@ -37,4 +37,8 @@ export class LandingScreenComponent implements OnInit {
     
     }
   }
+
+  onClickRetrieveQuote(){
+    this.router.navigate(['/retrieveQuoteLogin'])
+  }
 }

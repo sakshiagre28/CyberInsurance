@@ -20,5 +20,10 @@
 }
 
 .btnProceed{
-    margin: 20px 0px 0px 400px;
+  float:right;
+    margin: 20px 0px 0px 100px;
+}
+.btnBack{
+  float: left;
+  margin: 20px 0px 0px ;
 }

@@ -47,4 +47,10 @@ export class PassDataService {
   passLoggedInUser(user: IUser){
     this.loggedInUserBehSub.next(user)
   }
+
+  private passMalwareDataBehSub = new BehaviorSubject<boolean>(false)
+  public passMalwareDataValue = this.passMalwareDataBehSub.asObservable();
+  passMalwareData(value :boolean){
+    this.passMalwareDataBehSub.next(value)
+  }
 }

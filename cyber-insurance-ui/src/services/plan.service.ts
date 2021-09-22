@@ -22,7 +22,6 @@ export class PlanService {
     return this.http.get<any>('../assets/staticData/exclusions.json')
   }
   getPlanById(id: number){
-    console.log("ID entered"+id)
     return this.http.get<IPlan>(AUTH_API+"getPlan/"+id)
   }
 }

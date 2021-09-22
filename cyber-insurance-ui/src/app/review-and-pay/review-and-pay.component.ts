@@ -27,8 +27,12 @@ export class ReviewAndPayComponent implements OnInit {
         this.totalPremium = Math.ceil(1.18 * x.planCost)
 
       });
-    this.malware = localStorage.getItem('isMalwareSelected')=='true' ? 0.1*this.selectedPlan.planCost : 0
-    console.log(this.selectedPlan)
+      this.passDataService.passMalwareDataValue.subscribe(x=>{
+        if(x==true){
+          this.malware = 0.1*this.selectedPlan.planCost
+        }
+      })
+    
 
   }
 

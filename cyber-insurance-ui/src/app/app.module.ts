@@ -35,7 +35,6 @@ import {MatDialogModule} from '@angular/material/dialog';
 import { BehaviorSubject } from 'rxjs';
 import { AgreementDialogComponent } from './agreement-dialog/agreement-dialog.component';
 import { ReportComponent } from './report/report.component';
-import { ReportPdfService } from 'src/services/report-pdf.service';
 import { RetrieveQuoteLoginComponent } from './retrieve-quote-login/retrieve-quote-login.component';
 import { RetrieveQuoteDisplayComponent } from './retrieve-quote-display/retrieve-quote-display.component';
 
@@ -91,7 +90,7 @@ const appRoutes : Routes =[
     PlanService,
     UserService,
     PassDataService,
-    ReportPdfService
+
   ],
   bootstrap: [AppComponent]
 })

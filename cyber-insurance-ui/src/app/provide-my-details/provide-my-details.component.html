@@ -24,29 +24,29 @@
               </mat-form-field>    
               <mat-form-field class="txtLastName" appearance="fill" formControlName="lastName" ngDefaultControl>
                 <mat-label>Last name</mat-label>
-                <input matInput required>
+                <input matInput required autocomplete="off">
               </mat-form-field>          
             </div> 
             <div>
               <mat-form-field class="datePicker" formControlName ="birthDate" ngDefaultControl>
                   <mat-label>Select birthdate</mat-label>
-                 <input matInput [matDatepicker] = "birthdate" required>
+                 <input matInput [matDatepicker] = "birthdate" required autocomplete="off">
                  <mat-datepicker-toggle [for] ="birthdate" matSuffix></mat-datepicker-toggle>
                  <mat-datepicker #birthdate></mat-datepicker> 
               </mat-form-field>     
               <mat-form-field class="txtEmail" appearance="fill" formControlName ="email" ngDefaultControl>
                   <mat-label>E-mail</mat-label>
-                  <input matInput placeholder="Ex. abc@example.com" required>
+                  <input matInput placeholder="Ex. abc@example.com" required autocomplete="off">
               </mat-form-field>    
               <mat-form-field class="txtSendQuoteAt" appearance="fill" formControlName="sendQuoteAt" ngDefaultControl>
                   <mat-label>Send me quote at</mat-label>
-                  <input matInput placeholder="Your 10-digit mobile number" required>
+                  <input matInput placeholder="Your 10-digit mobile number" required autocomplete="off">
               </mat-form-field>          
               </div>
               <div>
                 <mat-form-field appearance="fill" formControlName ="aadhar" class="txtAadhar" ngDefaultControl>
                     <mat-label>Aadhar Number</mat-label>
-                    <input matInput required #aadharNumber maxlength="12">
+                    <input matInput required #aadharNumber maxlength="12" autocomplete="off">
                     <mat-hint align="end">{{aadharNumber.value.length}} / 12</mat-hint>
                   </mat-form-field>     
                   <mat-form-field class ="txtIncome" appearance="fill">
@@ -61,7 +61,7 @@
                   </mat-form-field>         
                 </div>
                 <div>
-                  <button mat-raised-button class="btnDone" type="submit" color="primary" [disabled] = "!detailsForm.valid">Done</button>
+                  <button mat-raised-button class="btnDone" type="submit" color="primary" [disabled] = "!detailsForm.valid">Save</button>
                 </div>
 
         </form>
@@ -76,13 +76,13 @@
           <div>
           <mat-form-field class="policyStartDate" formControlName ="policyStartDate" ngDefaultControl>
             <mat-label>Select Policy start date</mat-label>
-           <input matInput [matDatepicker] = "pStartDate" required [min]="minStartDate">
+           <input matInput [matDatepicker] = "pStartDate" required [min]="minStartDate" autocomplete="off">
            <mat-datepicker-toggle [for] ="pStartDate" matSuffix></mat-datepicker-toggle>
            <mat-datepicker #pStartDate></mat-datepicker> 
         </mat-form-field> 
         <mat-form-field class="policyEndDate" formControlName ="policyEndDate" ngDefaultControl>
           <mat-label>Select Policy end date</mat-label>
-         <input matInput [matDatepicker] = "pEndDate" required [min]="minEndDate" >
+         <input matInput [matDatepicker] = "pEndDate" required [min]="minEndDate" autocomplete="off" >
          <mat-datepicker-toggle [for] ="pEndDate" matSuffix></mat-datepicker-toggle>
          <mat-datepicker #pEndDate></mat-datepicker> 
       </mat-form-field> 
@@ -94,7 +94,7 @@
             <button mat-raised-button class="btnNo" type="button" color="primary">No</button>
           </div>
           <div>
-            <button mat-raised-button type="submit" class="btnDone" [disabled] ="!additionalDetailsForm.valid" color="primary">Done</button>
+            <button mat-raised-button type="submit" class="btnDone" [disabled] ="!additionalDetailsForm.valid" color="primary">Save</button>
           </div>
         </form>
     </mat-expansion-panel>      
@@ -104,9 +104,27 @@
                 Security incidents and loss History
             </mat-panel-title>
         </mat-expansion-panel-header>
-        <form>
+        <form (ngSubmit) ="saveSecurityDetails()">
           <p>Select the options that are applicable to you</p>
-            <div>
+            <div *ngFor="let choice of checks; let i=index">
+            <mat-checkbox color="primary" [value] = "choice.value" (change) ="onCheckChange($event,i)">
+              {{choice.description}}
+            </mat-checkbox><br>
+            
+          </div>
+          <div>
+            <button mat-raised-button class="btnDone" type="submit" color="primary">Save</button>
+          </div>
+        </form>
+    </mat-expansion-panel>    
+</div>  
+<div class="btnProceed">
+
+</div>
+<!---cccc
+<form (ngSubmit) ="saveSecurityDetails()">
+          <p>Select the options that are applicable to you</p>
+            <div *ngFor="let choice of checks; let i=index">
             <mat-checkbox color="primary">
               My family's or my computer(s) / smart device(s) has been hacked before.
             </mat-checkbox><br>
@@ -121,51 +139,7 @@
             </mat-checkbox>
           </div>
           <div>
-            <button mat-raised-button class="btnDone" color="primary">Done</button>
+            <button mat-raised-button class="btnDone" type="submit" color="primary">Save</button>
           </div>
         </form>
-    </mat-expansion-panel>    
-</div>  
-<div class="btnProceed">
-  
-</div>
-<!---
-<div>
-                <select class="salutation-select" id="inputGroupSalutation">
-                  <option selected>Salutation</option>
-                  <option value="Mr">Mr.</option>
-                  <option value="Mrs">Mrs.</option>
-                  <option value="Mst">Mst.</option>
-                  <option value="Miss">Miss</option>
-                </select>
-                <input type="text" class ="txtField" placeholder="First name" [(ngModel)]="firstName" name="firstName">
-                <input type="text"  class="txtField" placeholder="Last name" [(ngModel)]="lastName" name="lastName">
-              </div>
-              <div>
-                <
-                <input type="email" class="txtField" placeholder="E-mail">
-                <input type="email" class ="txtField" placeholder="Send me the quote at"> 
-              </div>
-              <div>
-                <input type="text" class="txtSsn" placeholder="SSN Number">
-                <select class="txtField" id="inputGroupIncome">
-                    <option selected>Source of income</option>
-                    <option value="earned">Earned income</option>
-                    <option value="business">Business income</option>
-                    <option value="interest">Interest income</option>
-                    <option value="dividend">Dividend income</option>
-                    <option value="other">Other</option>
-                  </select>
-              </div>   
------------------------------------------------------------
-              <mat-form-field class="zipCode" [(ngModel)] ="zipCode" name="zipCode">
-                  <mat-label>Select Policy end date</mat-label>
-                 <input matInput [matDatepicker] = "pEndDate" required [min]="minEndDate">
-                 <mat-datepicker-toggle [for] ="pEndDate" matSuffix></mat-datepicker-toggle>
-                 <mat-datepicker #pEndDate></mat-datepicker> 
-              </mat-form-field> 
-              <mat-form-field appearance="fill" class="zipCode" [(ngModel)] ="zipCode" name="zipCode" ngDefaultControl>
-                  <mat-label>Zip Code</mat-label>
-                  <input matInput placeholder="eg. 400178" required>
-              </mat-form-field> 
 -->

@@ -30,7 +30,7 @@ export class ChooseMyPlanComponent implements OnInit {
     this.planService.getExclusions().subscribe(data=>{
       this.exclusionList = data
     })
-    console.log(this.inclusionList)
+    
   }
 
   onPlanClick(planId,i){
@@ -51,6 +51,6 @@ export class ChooseMyPlanComponent implements OnInit {
   onMalwareClick(){
     this.isMalwareSelected = !this.isMalwareSelected;
     this.userService.saveMalwareFlag(this.isMalwareSelected)
-    
+    this.passDataService.passMalwareData(this.isMalwareSelected)
   }
 }

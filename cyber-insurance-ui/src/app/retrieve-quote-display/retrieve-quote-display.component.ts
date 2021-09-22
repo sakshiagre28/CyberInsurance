@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { IPlan } from 'src/models/plan';
 import { IUser } from 'src/models/user';
@@ -13,7 +14,7 @@ import { UserService } from 'src/services/user.service';
 })
 export class RetrieveQuoteDisplayComponent implements OnInit {
 
-  constructor(private userService :UserService,private passDataService : PassDataService,private planService: PlanService) { }
+  constructor(private router: Router,private userService :UserService,private passDataService : PassDataService,private planService: PlanService) { }
   loggedInUser : any 
   loggedInUserPlan: IPlan ={planId :101,planCost:0,sumAssured:0}
   ngOnInit(): void {
@@ -26,8 +27,8 @@ export class RetrieveQuoteDisplayComponent implements OnInit {
      
 
   }
-  downloadQuote(){
-
+  goToHome(){
+    this.router.navigate([''])
   }
 
 }

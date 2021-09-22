@@ -30,7 +30,6 @@ export class RetrieveQuoteLoginComponent implements OnInit {
       this.passDataService.passLoggedInUser(data)
     })
 
-    //this.userService.setLoggedInUser(this.loggedInUser)
     this.router.navigate(['/retrieveQuote'])
   }
 }
